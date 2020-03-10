@@ -1,0 +1,13 @@
+.client-name {
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 8%;
+  margin: 2%;
+}
+.client-input {
+  margin-left: 3%;
+  border-radius: 30em;
+}
+.name {
+  font-weight: bold;
+}

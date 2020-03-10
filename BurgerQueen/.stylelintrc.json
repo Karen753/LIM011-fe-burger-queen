@@ -1,0 +1,6 @@
+{
+    " complementos " : [ 
+      " stylelint-scss "
+    ],
+    "extends": "stylelint-config-standard"
+}

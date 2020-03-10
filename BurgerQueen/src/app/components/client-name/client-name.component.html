@@ -1,0 +1,8 @@
+
+  <form class="client-name form-inline" [formGroup]="nameForm">
+    <div class="form-group my-2">
+      <label class="name">CLIENTE:</label>
+      <input (input)="captureName()" formControlName="nameValue"
+        type="text" class="client-input form-control mx-sm-3" placeholder="Ingrese el nombre" name="name">
+   </div>
+  </form>
