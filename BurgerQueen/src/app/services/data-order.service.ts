@@ -4,10 +4,9 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class DataOrderService {
-  clientName: string;
+clientName: string;
   constructor() { }
-
-  saveClientName(name) {
+  saveClientName(name){
     this.clientName = name;
     console.log(this.clientName);
   }
