@@ -11,11 +11,9 @@ export class FirebaseService {
 
   getProducts(){
     //return this.firestore.collection('products').snapshotChanges();
-    this.firestore.collection('products')
+   return this.firestore.collection('products')
       .valueChanges()
-      .subscribe({
-        next: (values) => console.log(values)         
-      })
+    
     
   }
 

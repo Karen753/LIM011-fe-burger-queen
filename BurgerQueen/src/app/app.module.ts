@@ -7,8 +7,7 @@ import{ReactiveFormsModule, FormsModule}from '@angular/forms'
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';  
 import { environment } from '../environments/environment';
-import{AngularFireStorageModule}from 'angularfire2/storage';
-import{AngularFireAuth}from 'angularfire2/auth'; // autenticacion 
+import{AngularFireStorageModule}from 'angularfire2/storage'
 
 //servicios
 //componentes
@@ -35,7 +34,6 @@ import { ProductsComponent } from './components/products/products.component';
     FormsModule,
     AngularFirestoreModule, // imports firebase/storage only needed for storage features
     AngularFireModule.initializeApp(environment.firebase),
-    FontAwesomeModule,
     ReactiveFormsModule
   ],
   bootstrap: [AppComponent]

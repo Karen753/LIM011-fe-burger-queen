@@ -7,13 +7,20 @@ import{FirebaseService} from "src/app/services/firebase.service"
   styleUrls: ['./products.component.scss']
 })
 export class ProductsComponent implements OnInit {
-
+  
+productos: any[];
   constructor(private firebaseService:FirebaseService) { }
 
   ngOnInit(): void {
   }
   m(){
-    this.firebaseService.getProducts();
-  }
+ this.firebaseService.getProducts().subscribe({
+  next: (values) => {
+    this.productos = values
+    console.log(this.productos);
+  }         
+});
+  
+}
 
 }

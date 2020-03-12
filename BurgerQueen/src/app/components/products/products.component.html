@@ -1,2 +1,4 @@
-<p>products works!</p>
-<input (input)="m()">
+<input type="button" (click)="m()">
+<div *ngFor="let product of productos">
+ <div>{{ product.category }}</div>
+</div>
