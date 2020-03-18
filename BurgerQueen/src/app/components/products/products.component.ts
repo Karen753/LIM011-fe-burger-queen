@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import{FirebaseService} from "src/app/services/firebase.service"
+import { element } from 'protractor';
 
 @Component({
   selector: 'app-products',
@@ -8,19 +9,32 @@ import{FirebaseService} from "src/app/services/firebase.service"
 })
 export class ProductsComponent implements OnInit {
   
-productos: any[];
+allproducts: any[] = [];
+
+productFilter: any[];
   constructor(private firebaseService:FirebaseService) { }
 
   ngOnInit(): void {
+    this.firebaseService.getProducts().subscribe({
+      next: (value) => {
+        this.allproducts = value
+        console.log(this.allproducts);
+      }         
+    });
+    this.firebaseService.currentProduct.subscribe({
+      next: ((values: string) => {
+        this.productFilter = this.allproducts.filter((element) => element.category === values)
+        console.log(this.productFilter);
+        
+      })
+    })
   }
-  m(){
- this.firebaseService.getProducts().subscribe({
-  next: (values) => {
-    this.productos = values
-    console.log(this.productos);
-  }         
-});
+
+
   
-}
+//   products(){
+ 
+  
+// }
 
 }

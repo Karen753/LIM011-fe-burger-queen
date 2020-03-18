@@ -1,5 +1,36 @@
-<form class="form-inline">
-    <button class="btn-head btn btn-outline-success  mr-sm-2" type="submit">Bebidas</button>
-    <button class=" btn-head btn btn-outline-success mr-sm-2"  type="submit">Menu</button>
-  <button class=" btn-head btn btn-outline-success  mr-sm-2" type="submit">Adicional</button>
-</form>
+<!-- <div class="ml-3">
+  <div class="btn-group  mr-sm-1">
+    <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      BEBIDAS
+    </button>
+    <div class="dropdown-menu">
+      <a class="dropdown-item" href="#">Desayuno</a>
+      <a class="dropdown-item" href="#">General</a>
+    </div>
+  </div>
+  
+  <div class="btn-group mr-sm-1">
+    <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      MENU
+    </button>
+    <div class="dropdown-menu">
+      <a class="dropdown-item" href="#">Desayuno</a>
+      <a class="dropdown-item" href="#">Almuerzo/Cena</a>
+      <a class="dropdown-item" href="#">Acompañamiento</a>
+    </div>
+  </div>
+  
+  <button type="button" class="btn btn-success ">ADICIONAL</button>
+  
+  </div> -->
+
+  <button type="button" class="mr-2 btn btn-warning" (click)="sourceProducts('bebidas')">BEBIDAS</button>
+  <button type="button" class="mr-2 btn  btn-warning" (click)="sourceProducts('menu')">MENU</button>
+  <button type="button" class="mr-2 btn  btn-warning" (click)="sourceProducts('adicional')">ADICIONAL</button>
+
+  <!-- <div *ngFor="let drinks of bebidas">
+    <div>{{ drinks.category }}</div>
+  </div>
+
+  <div *ngFor="let menus of menu">
+    <div>{{ menus.name }}</div> -->
