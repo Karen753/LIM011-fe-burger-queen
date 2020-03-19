@@ -6,18 +6,33 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class DataOrderService {
 clientName: string;
- public arrayFilterProducts: any[];
- private arrayOrder = new BehaviorSubject([]);
- currentOrder = this.arrayOrder.asObservable();
+//arrOrder: object[];
+private arrOrder = new BehaviorSubject([]);
+currentOrder = this.arrOrder.asObservable();
 
   constructor() { }
+
   saveClientName(name){
     this.clientName = name;
    // console.log(this.clientName);
   }
-   addProductOrder(value) {
-     this.arrayOrder.next(value);
-   }
+  addProductToOrder(obj) {
+    const itemObj = {
+      item: obj,
+      cantidad: 1
+    };
+
+    const newArrObj = [
+      ...this.arrOrder.value,
+      itemObj
+    ]
+    // this.arrOrder = obj;
+     console.log( obj);
+    this.arrOrder.next(newArrObj);
+    console.log(this.arrOrder);
+    
+    // this.arrayOrder.next(value);
+  }
   
 }
 
