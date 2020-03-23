@@ -22,9 +22,7 @@ export class DataOrderComponent implements OnInit {
      
    })
    }
-
-
-  ngOnInit(): void {
+   ngOnInit(): void {
    
   }
   
