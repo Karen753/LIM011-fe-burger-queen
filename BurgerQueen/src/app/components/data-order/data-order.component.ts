@@ -16,9 +16,9 @@ export class DataOrderComponent implements OnInit {
    valorany:any;
   constructor(private dataOrderService: DataOrderService) {
    this.dataOrderService.currentOrder.subscribe({
-     next:(value=>{
+     next:(value => {
       this.itemOrder = value 
-      //console.log(this.itemOrder);  
+      console.log(this.itemOrder);  
      } 
       )    
    })

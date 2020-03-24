@@ -32,10 +32,10 @@ export class ProductsComponent implements OnInit {
       next: ((values : string) => {
       this.productFilter =  this.allProducts.filter((element) => element.category === values)
       console.log(this.productFilter);
+      console.log(this.allProducts);
+      
     
       })
-    //this.firebaseService.getProducts()
-     //console.log(this.firebaseService.getProducts());
     })
       }
     })
