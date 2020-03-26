@@ -18,7 +18,7 @@ export class DataOrderComponent implements OnInit {
    this.dataOrderService.currentOrder.subscribe({
      next:(value => {
       this.itemOrder = value 
-      console.log(this.itemOrder);  
+      
      } 
       )    
    })
@@ -36,12 +36,13 @@ export class DataOrderComponent implements OnInit {
    return itemd.name === element.name  
  }) 
 
-  if(!arreglo){
-arrayproduc = this.itemOrder.concat(itemd)
- }
- else{
+//   if(!arreglo){
+// arrayproduc = this.itemOrder.concat(itemd)
+//  }
+ if(arreglo){
 arrayproduc = this.itemOrder.map((element)  => {
   let objetnew: {}
+  let objetnew2: {}
   if(itemd.name === element.name){
     objetnew = {
       name: element.name,
@@ -50,13 +51,23 @@ arrayproduc = this.itemOrder.map((element)  => {
     }
     return objetnew;
   }else{
-    return element;
+    return objetnew2 = {
+      ...objetnew,
+      name:element.name,
+      price: element.price,
+      cantidad: element.cantidad +1
+    }
   }
 })
 
  }
+ console.log(arrayproduc);
+ 
+ 
 
-return this.valorany = arrayproduc;
+return this.itemOrder = arrayproduc;
+
+
   }
 
 
