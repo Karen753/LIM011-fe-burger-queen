@@ -53,6 +53,7 @@ const arreglo:object = this.arrOrder.value.find((element)=>{
 //console.log(element);
 
   return itemd.id === element.id;
+  
  }) 
  console.log(arreglo);
  
