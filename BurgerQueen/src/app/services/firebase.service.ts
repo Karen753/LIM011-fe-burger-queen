@@ -21,7 +21,7 @@ export class FirebaseService {
   }
 
   
-  public products = [];
+  public products= [];
     
   public getProductst() {
     this.products = [];
