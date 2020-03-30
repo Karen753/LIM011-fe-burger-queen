@@ -9,7 +9,7 @@ export class DataOrderService {
   clientName: string;
   //arrOrder: object[];
   findProducto: [];
-   
+  amount:number = 0;
   private arrOrder = new BehaviorSubject([]);
    public currentOrder = this.arrOrder.asObservable();
   public obj: object;
@@ -27,7 +27,8 @@ export class DataOrderService {
   addProductToOrder(obj) {
     const itemObj = {
       ...obj,
-      quantity: 1
+      quantity: 1,
+      amount: 0
     };
 
     const newArrObj = [

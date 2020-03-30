@@ -43,6 +43,7 @@ export class ProductsComponent implements OnInit {
   }
   add(product) {
 this.dataOrderService.addProductToOrder(product);
+console.log(product);
 
   }
 }
