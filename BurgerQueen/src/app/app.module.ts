@@ -7,7 +7,7 @@ import{ReactiveFormsModule, FormsModule}from '@angular/forms'
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';  
 import { environment } from '../environments/environment';
-import{AngularFireStorageModule}from 'angularfire2/storage'
+import{AngularFireStorageModule}from 'angularfire2/storage';
 
 //servicios
 //componentes
@@ -21,6 +21,7 @@ import { OptionsMenuComponent } from './components/options-menu/options-menu.com
 import { ProductsComponent } from './components/products/products.component';
 import { DataOrderComponent } from './components/data-order/data-order.component';
 import { PagesComponent } from './components/pages/pages.component';
+
 
 @NgModule({
   declarations: [
