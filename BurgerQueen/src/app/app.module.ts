@@ -21,6 +21,7 @@ import { OptionsMenuComponent } from './components/options-menu/options-menu.com
 import { ProductsComponent } from './components/products/products.component';
 import { DataOrderComponent } from './components/data-order/data-order.component';
 import { PagesComponent } from './components/pages/pages.component';
+import { ModalComponent } from './components/modal/modal.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { PagesComponent } from './components/pages/pages.component';
     OptionsMenuComponent,
     ProductsComponent,
     DataOrderComponent,
-    PagesComponent
+    PagesComponent,
+    ModalComponent
   ],
   imports: [
     BrowserModule,

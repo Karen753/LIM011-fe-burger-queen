@@ -15,7 +15,7 @@ export class ProductsComponent implements OnInit {
   productFilter;
 
 
-  constructor(private firebaseService:FirebaseService, private dataOrderService: DataOrderService) {
+  constructor(private firebaseService:FirebaseService, private dataOrderService: DataOrderService ) {
 
      this.firebaseService.filteredProducts.subscribe({
      next:(value =>{
@@ -46,6 +46,12 @@ this.dataOrderService.addProductToOrder(product);
 console.log(product);
 
   }
+
+  // nose() {
+  //   if(this.firebaseService.updateCategory.){
+  //     return true;
+  //   }
+  // }
 }
 
 

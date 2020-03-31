@@ -11,8 +11,10 @@
       <label for="">{{arrOrderProducts.data.price * arrOrderProducts.quantity}}</label>
     </td>
     <td>
-      <button (click)="deleteProduc(arrOrderProducts)">eliminar</button>
-    </td>
+      <button class="btn btn-info" (click)="deleteProduc(arrOrderProducts)">ELIMINAR</button>
+      <button type="button"  class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+        Extras
+      </button>
   </tr>
 </table>
 

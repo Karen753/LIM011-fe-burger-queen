@@ -1,0 +1,12 @@
+.carProducts {
+  display: flex;
+  width: 50%;
+  margin: 2%;
+  margin-left: 5px;
+}
+.card {
+  flex-direction: column;
+  margin: 20px;
+  padding: 1%;
+  text-align: center;
+}
