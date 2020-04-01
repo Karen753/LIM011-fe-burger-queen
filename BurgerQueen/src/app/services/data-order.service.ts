@@ -7,12 +7,9 @@ import { element } from 'protractor';
 })
 export class DataOrderService {
   clientName: string;
-  //arrOrder: object[];
-  findProducto: [];
-  amount:number = 0;
   private arrOrder = new BehaviorSubject([]);
    public currentOrder = this.arrOrder.asObservable();
-  public obj: object;
+  // public obj: object;
 
   constructor() {
   }
@@ -27,9 +24,9 @@ export class DataOrderService {
   addProductToOrder(obj) {
     const itemObj = {
       ...obj,
-      quantity: 1,
-      //amount: 0
+      quantity: 1,   
     };
+    console.log(itemObj);
 
     const newArrObj = [
       ...this.arrOrder.value,

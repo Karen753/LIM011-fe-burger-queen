@@ -14,6 +14,7 @@ export class ProductsComponent implements OnInit {
   //prueba: any[]
   productFilter;
   public productsExtra:any[];
+  public prodExtraSelected: any[];
 
   constructor(private firebaseService:FirebaseService, private dataOrderService: DataOrderService ) {
 
@@ -46,15 +47,17 @@ export class ProductsComponent implements OnInit {
   }
   add(product) {
 this.dataOrderService.addProductToOrder(product);
-console.log(product);
+// console.log(product);
 
   }
 
-  // nose() {
-  //   if(this.firebaseService.updateCategory.){
-  //     return true;
-  //   }
-  // }
-}
+addExtras(objTemporal){
+  this.dataOrderService.addProductToOrder(objTemporal)
+ this.prodExtraSelected = objTemporal;
 
+  
+}
+ }
+
+ 
 

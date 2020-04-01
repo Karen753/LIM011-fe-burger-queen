@@ -15,7 +15,7 @@ export class FirebaseService {
    private opcionMecio = new BehaviorSubject('menu');
    
    currentMenu = this.opcionMecio.asObservable();
-  private categoryValue = new BehaviorSubject('bebidas');//  es la varriable que se encarga en mostrar el valor inicial 
+  private categoryValue = new BehaviorSubject('menu');//  es la varriable que se encarga en mostrar el valor inicial 
   currentProduct = this.categoryValue.asObservable();// para que se pueda trabajr mediante un obserbable el cambio de datos
 
   prueba: any[]
