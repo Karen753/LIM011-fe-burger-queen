@@ -47,7 +47,7 @@ export class ProductsComponent implements OnInit {
  
   }
   add(product) {
-    console.log('voy a agregar el producto al array', product);
+    // console.log('voy a agregar el producto al array', product);
     
     this.dataOrderService.addProductToOrder(product);
      //console.log(product);
@@ -58,13 +58,13 @@ export class ProductsComponent implements OnInit {
   //this.dataOrderService.addProductToOrder(objTemporal)
  this.prodExtraSelected =  {...objTemporal};
 
-  console.log(this.prodExtraSelected);
+  // console.log(this.prodExtraSelected);
 
  
  
 }
 addExtrasProduct(extra: string){
-  this.prodExtraSelected[extra] = true;
+  this.prodExtraSelected[extra] =true;
   
   this.newObjectExtra = {
     ...this.prodExtraSelected,
@@ -75,10 +75,10 @@ addExtrasProduct(extra: string){
   // this.add(newObjectExtra);
   // this.newObjectExtra = {};
 }
-addFinalExtras(obj: object){
- obj =  this.newObjectExtra 
-  this.add(obj);
-  obj = {};
+addFinalExtras(objeto: object){
+ objeto =  this.newObjectExtra 
+  this.add(objeto);
+  
 }
 
 

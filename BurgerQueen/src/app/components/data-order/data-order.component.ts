@@ -34,7 +34,7 @@ export class DataOrderComponent implements OnInit {
   
 
   this.arrOrderProducts[this.indice].quantity = this.arrOrderProducts[this.indice].quantity + 1; 
-  this.arrOrderProducts[this.indice].data.price =  this.arrOrderProducts[this.indice].data.price ;
+  this.arrOrderProducts[this.indice].data.price =  this.arrOrderProducts[this.indice].data.price;
 //    const c= this.arrOrderProducts[this.indice].amount = this.arrOrderProducts[this.indice].data.price * this.arrOrderProducts[this.indice].price
 // console.log(c);
 
