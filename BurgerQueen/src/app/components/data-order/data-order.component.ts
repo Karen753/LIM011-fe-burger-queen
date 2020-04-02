@@ -13,6 +13,7 @@ export class DataOrderComponent implements OnInit {
   indice: number;
   quantityProducts : number;
   arrOrderProducts: any [];
+  totalPrice: number = 0;
   constructor(private dataOrderService: DataOrderService) {
    }
   
@@ -22,8 +23,12 @@ export class DataOrderComponent implements OnInit {
      console.log(value);
      
      this.arrOrderProducts = value
+     this.addTotalPrice()
+     
+     
     } 
   });
+  
    
   }
 
@@ -64,9 +69,17 @@ console.log(obj);
     }
 
    }
-   addTotalOrder(){
+   addTotalPrice(){
+     console.log(this.totalPrice);
+     
+    this.totalPrice = 0;
+    this.arrOrderProducts.forEach((element) => {
 
-   }
+       const subtotal = element.quantity * element.data.price
+      
+       this.totalPrice += subtotal;
+    })
+     }
   
   
 }
