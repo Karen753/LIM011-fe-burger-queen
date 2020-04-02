@@ -14,7 +14,8 @@ export class ProductsComponent implements OnInit {
   //prueba: any[]
   productFilter;
   public productsExtra:any[];
-  public prodExtraSelected: any[];
+  public prodExtraSelected: any;
+  public newObjectExtra: {};
 
   constructor(private firebaseService:FirebaseService, private dataOrderService: DataOrderService ) {
 
@@ -29,7 +30,7 @@ export class ProductsComponent implements OnInit {
  this.firebaseService.extraProducts.subscribe({
   next:(value =>{
     this.productsExtra = value;
-    console.log(this.productsExtra);
+    // console.log(this.productsExtra);
 
   })
 })
@@ -46,17 +47,41 @@ export class ProductsComponent implements OnInit {
  
   }
   add(product) {
-this.dataOrderService.addProductToOrder(product);
-// console.log(product);
+    console.log('voy a agregar el producto al array', product);
+    
+    this.dataOrderService.addProductToOrder(product);
+     //console.log(product);
+    
+      }
 
+  addExtras(objTemporal: object){
+  //this.dataOrderService.addProductToOrder(objTemporal)
+ this.prodExtraSelected =  {...objTemporal};
+
+  console.log(this.prodExtraSelected);
+
+ 
+ 
+}
+addExtrasProduct(extra: string){
+  this.prodExtraSelected[extra] = true;
+  
+  this.newObjectExtra = {
+    ...this.prodExtraSelected,
+    priceExtra: 1,
+    priceExtraTwo: 2
   }
 
-addExtras(objTemporal){
-  this.dataOrderService.addProductToOrder(objTemporal)
- this.prodExtraSelected = objTemporal;
-
-  
+  // this.add(newObjectExtra);
+  // this.newObjectExtra = {};
 }
+addFinalExtras(obj: object){
+ obj =  this.newObjectExtra 
+  this.add(obj);
+  obj = {};
+}
+
+
  }
 
  

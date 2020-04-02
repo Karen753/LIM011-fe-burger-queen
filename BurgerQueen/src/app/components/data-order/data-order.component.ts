@@ -44,6 +44,7 @@ export class DataOrderComponent implements OnInit {
 
    subtractProducts(obj){
     this.indice = this.arrOrderProducts.indexOf(obj)
+console.log(obj);
 
     if(this.arrOrderProducts[this.indice].quantity >=1){
       this.arrOrderProducts[this.indice].quantity = this.arrOrderProducts[this.indice].quantity - 1;
@@ -61,6 +62,9 @@ export class DataOrderComponent implements OnInit {
      if (indice !== -1) {
       this.arrOrderProducts.splice(indice,1);
     }
+
+   }
+   addTotalOrder(){
 
    }
   

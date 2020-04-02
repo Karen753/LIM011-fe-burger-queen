@@ -26,7 +26,7 @@ export class DataOrderService {
       ...obj,
       quantity: 1,   
     };
-    console.log(itemObj);
+    console.log(obj);
 
     const newArrObj = [
       ...this.arrOrder.value,

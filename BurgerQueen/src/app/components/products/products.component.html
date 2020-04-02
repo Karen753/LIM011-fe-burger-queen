@@ -21,7 +21,7 @@
     </div>
     <div>
       <button type="button"   (click)="add(product)" class="btn btn-danger">+</button>
-    <button type="button" *ngIf ="product.data.category === 'menu'" (click)="addExtras(product)"class="btn btn-danger" data-toggle="modal" data-target="#productsModal">Extra</button>
+    <button type="button" *ngIf ="product.data.category === 'menu'" (click)="addExtras(product)" class="btn btn-danger" data-toggle="modal" data-target="#productsModal">Extra</button>
     </div>  
   </div>
   
@@ -44,13 +44,15 @@
             <p > S/ {{productExtra.data.price}}</p>
           </div>
           <div>
-            <button type="button"   (click)="addExtras(productExtra)" class="btn btn-danger">+</button>
+            <button type="button"  (click)= "addExtrasProduct(productExtra.data.name)"class="btn btn-danger">+</button>
           
           </div> 
+      </div>
+      <div class="modal-footer">
+        <button type="button" (click)="addFinalExtras(newObjectExtra)"class="btn btn-secondary" data-dismiss="modal">¡Listo!</button>
       </div>
     </div>
   </div>
 </div>
  
-
 
