@@ -12,7 +12,7 @@ import {DataOrderService} from "src/app/services/data-order.service"
 export class ProductsComponent implements OnInit {
 
   //prueba: any[]
-  productFilter;
+  public productFilter;
   public productsExtra:any[];
   public prodExtraSelected: any;
   public newObjectExtra: {};
@@ -22,7 +22,7 @@ export class ProductsComponent implements OnInit {
      this.firebaseService.filteredProducts.subscribe({
      next:(value =>{
       this.productFilter = value 
-     // console.log(this.productFilter);
+     console.log(this.productFilter);
     
      } 
       )    
@@ -72,14 +72,16 @@ addExtrasProduct(extra: string){
     priceExtraTwo: 2
   }
 
-  // this.add(newObjectExtra);
-  // this.newObjectExtra = {};
 }
-addFinalExtras(objeto: object){
- objeto =  this.newObjectExtra 
-  this.add(objeto);
-  
-}
+
+  addFinalExtras(objeto: object){
+    objeto =  this.newObjectExtra 
+    
+     this.add(objeto);
+     
+   }
+
+
 
 
  }
