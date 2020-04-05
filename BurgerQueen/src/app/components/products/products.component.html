@@ -1,32 +1,16 @@
-<!-- <div class="container" ngFor="let product of products">productos</div> -->
-<!--<input ngFor="let product of products">-->
-<!-- <div class="grd-row-col-6">
-
-</div> -->
-<!-- <div *ngFor="let product of productFilter">
-   <img src=""alt="">
+<div class="carProducts">
+  <div *ngFor="let product of productFilter " class="card " style="width: 10rem;">
+      <img [src]= "product.data.image"> 
+     <div class="card-body">
+       <h5 class="card-title"> {{product.data.name}}</h5>
+       <p class="card-text"> S/ {{product.data.price}}</p>
+     </div> 
+     <button type="button"   (click)="add(product)" class="btn btn-danger">+</button>
+     <button type="button" *ngIf ="product.data.category === 'menu'" (click)="addExtras(product)" class="btn btn-danger" data-toggle="modal" data-target="#productsModal">Extra</button>
   
-   {{product.name}}
-    {{product.price}}
- 
-</div>  -->
-
-
-<div class="x">
-<div *ngFor="let product of productFilter" class="cardProduts">
-  <div>
-    <img [src]= "product.data.image"> 
-      <h5 > {{product.data.name}}</h5>
-      <p > S/ {{product.data.price}}</p>
-    </div>
-    <div>
-      <button type="button"   (click)="add(product)" class="btn btn-danger">+</button>
-    <button type="button" *ngIf ="product.data.category === 'menu'" (click)="addExtras(product)" class="btn btn-danger" data-toggle="modal" data-target="#productsModal">Extra</button>
-    </div>  
+   </div>
   </div>
   
-  </div>
-
  <!-- Modal -->
  <div class="modal fade" id="productsModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
