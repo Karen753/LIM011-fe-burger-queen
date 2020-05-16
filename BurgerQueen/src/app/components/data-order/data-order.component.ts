@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {DataOrderService}from "src/app/services/data-order.service";
-import { from } from 'rxjs';
-import { element } from 'protractor';
-import {FirebaseService} from "src/app/services/firebase.service"
-import{FormGroup,FormControl}from '@angular/forms'
+import { DataOrderService } from "src/app/services/data-order.service";
+import { FirebaseService } from "src/app/services/firebase.service";
+import { FormGroup, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-data-order',
@@ -12,60 +10,54 @@ import{FormGroup,FormControl}from '@angular/forms'
 })
 
 export class DataOrderComponent implements OnInit {
-  indice: number;
-  quantityProducts : number;
-  arrOrderProducts: any [];
-  totalPrice: number = 0;
+  public indice: number;
+  public quantityProducts: number;
+  public  arrOrderProducts: any[];
+  public totalPrice: number = 0;
   public nameCliente: string;
   public objProducts: object;
   public customerName = '';
+  public message: string;
 
 
+  constructor(private dataOrderService: DataOrderService, private firebaseService: FirebaseService) {
 
-  constructor(private dataOrderService: DataOrderService, private firebaseService: FirebaseService ) {
   }
 
   ngOnInit(): void {
-   //console.log(this.itemOrder);
-   this.dataOrderService.currentOrder.subscribe({ next: (value) => {
-     console.log(value);
-     
-     this.arrOrderProducts = value
-     this.addTotalPrice()
+    this.dataOrderService.currentOrder.subscribe({
+      next: (value) => {
+        
 
-    
-    } 
-  });
-  // this.dataOrderService.clientName  = this.nameCliente
-  // console.log(this.dataOrderService.clientName );
-  
+        this.arrOrderProducts = value
+        this.addTotalPrice()
+
+
+      }
+    });
+
+
   }
 
 
   nameForm = new FormGroup({
     nameValue: new FormControl('')
   });
-  
-   captureName(){
-     this.customerName = this.nameForm.value.nameValue;
-     console.log(this.customerName);
-     
 
-     //this.dataOrderService.saveClientName(this.nameForm.value.nameValue);
-   }
- 
-  
+  captureName() {
+    this.customerName = this.nameForm.value.nameValue;
+   
 
-  addProducts(itemd){
-  
-  this.indice = this.arrOrderProducts.indexOf(itemd);
-  //console.log([this.indice]);
+  }
 
-  this.arrOrderProducts[this.indice].quantity = this.arrOrderProducts[this.indice].quantity + 1; 
-  this.arrOrderProducts[this.indice].data.price =  this.arrOrderProducts[this.indice].data.price ;
 
+
+  addProducts(itemd) {
+
+    this.indice = this.arrOrderProducts.indexOf(itemd);
     this.arrOrderProducts[this.indice].quantity = this.arrOrderProducts[this.indice].quantity + 1;
     this.arrOrderProducts[this.indice].data.price = this.arrOrderProducts[this.indice].data.price;
+    this.addTotalPrice()
   }
 
 
@@ -80,40 +72,64 @@ export class DataOrderComponent implements OnInit {
     if (this.arrOrderProducts[this.indice].quantity === 0) {
       this.deleteProduc(obj)
     }
+
+    this.addTotalPrice()
   }
 
-   addTotalPrice(){
-    //console.log(this.totalPrice);
-    
-   this.totalPrice = 0;
-   this.arrOrderProducts.forEach((element) => {
-
+  addTotalPrice() {
+    this.totalPrice = 0;
+    this.arrOrderProducts.forEach((element) => {
       const subtotal = element.quantity * element.data.price
-     
       this.totalPrice += subtotal;
-      
-   })
-    }
+      if (element.Queso === true && element.Huevo === true) {
+        const priceExtra = element.priceExtraTwo * element.quantity;
+        this.totalPrice += priceExtra;
+        console.log(priceExtra);
+      }
+      if (element.Queso === true && element.Huevo === undefined) {
+        const priceExtra = element.priceExtra * element.quantity;
+        this.totalPrice += priceExtra;
+      }
+      if (element.Huevo === true && element.Queso === undefined) {
+        const priceExtra = element.priceExtra * element.quantity;
+        this.totalPrice += priceExtra;
+      }
+    })
+  }
 
-    deleteProduc(obj){
-      const indice = this.arrOrderProducts.findIndex((element)=> element.id === obj.id);
-      if (indice !== -1) {
-       this.arrOrderProducts.splice(indice,1);
-     }
-     console.log(this.arrOrderProducts);
+
+  deleteProduc(obj) {
+    const indice = this.arrOrderProducts.findIndex((element) => element.id === obj.id);
+    if (indice !== -1) {
+      this.arrOrderProducts.splice(indice, 1);
+      this.addTotalPrice()
     }
-  
-  sendToOrrder(){
-   
-  const obj = {... this.arrOrderProducts}
-  const finalObj = {
-    customerName: this.customerName,
-    Order: obj,
-    totalOrder: this.totalPrice,
-    dateOrde:  new Date(),
+    
 
   }
-  this.firebaseService.sendOrderToKitchen(finalObj);
-  console.log('enviado');
+
+  sendToOrrder() {
+
+    this.message = ` El pedido de ${this.customerName} fue enviado a cocina`;
+    const obj = { ... this.arrOrderProducts}
+        console.log(obj)
+
+    const finalObj = {
+      customerName: this.customerName,
+      Order: obj,
+      totalOrder: this.totalPrice,
+      dateOrde: new Date(),
+
+    }
+    this.firebaseService.sendOrderToKitchen(finalObj);
+    this.dataOrderService.arrOrder.next([]);
+    this.nameForm.value.nameValue = '';
+    setTimeout(() => {
+      this.message = undefined;
+    }, 4000);
+
+    
   }
+
 }
+

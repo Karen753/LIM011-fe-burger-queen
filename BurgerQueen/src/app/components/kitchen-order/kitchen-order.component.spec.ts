@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { BtnSendComponent } from './btn-send.component';
+import { KitchenOrderComponent } from './kitchen-order.component';
 
-describe('BtnSendComponent', () => {
-  let component: BtnSendComponent;
-  let fixture: ComponentFixture<BtnSendComponent>;
+describe('KitchenOrderComponent', () => {
+  let component: KitchenOrderComponent;
+  let fixture: ComponentFixture<KitchenOrderComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ BtnSendComponent ]
+      declarations: [ KitchenOrderComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(BtnSendComponent);
+    fixture = TestBed.createComponent(KitchenOrderComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

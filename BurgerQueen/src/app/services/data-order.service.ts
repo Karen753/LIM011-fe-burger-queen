@@ -10,7 +10,7 @@ export class DataOrderService {
   //arrOrder: object[];
   findProducto: [];
    
-  private arrOrder = new BehaviorSubject([]);
+  public arrOrder = new BehaviorSubject([]);
    public currentOrder = this.arrOrder.asObservable();
   // public obj: object;
 
@@ -20,14 +20,11 @@ export class DataOrderService {
   ngOnInit(): void {
   }
 
-  // saveClientName(name) {
-  //   this.clientName = name;
-  // }
   
   addProductToOrder(obj) {
     const itemObj = {
       ...obj,
-      quantity: 1,   
+      quantity: 1,
     };
     // console.log(obj);
 
